@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<title>Event Executor</title>
+		<meta name="decorator" content="atl.admin" />
+		<meta name="admin.sectionName" content="Event Executor" />
+	</head>
+	<body>
+		<form method="post">
+			<table class="adminTable">
+				<tbody>
+					<tr>
+						<td>
+							<p>This plugin allows system executables/callbacks to be supplied for various events raised from within FishEye and Crucible.</p>
+							<p>For each event you wish to listen for, fill in the command text box with the path to the executable. The plugin will then call the executable with environment variables containing information about the raised event.</p>
+							
+							<p>Because this plugin needs system wide access to projects, it needs to run as an elevated user. Enter the username of a FishEye administrator below.</p>
+							<p>
+								FishEye Administrator:
+								<input type="text" name="username" value="#if ($username)$username#end" />
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+			#if ($username)
+				<table class="adminTable">
+					<thead>
+						<th>
+							Command to Run for Commit Events
+							<div style="font-weight: normal">
+								Raised whenever a new commit is made to a repository and FishEye has indexed the associated revision.
+							</div>
+						</th>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+								<input type="text" name="commitHook" style="width: 95%" value="#if ($commitHook)$commitHook#end" />
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<strong>Available Environment Variables:</strong>
+								<ul style="margin-left: 0; padding-left: 10px;">
+									<li><em>FECRU_REVISION</em> - Revision number</li>
+									<li><em>FECRU_REPOSITORY</em> - Associated repository</li>
+									<li><em>FECRU_BRANCH</em> - Associated branch for revision</li>
+									<li><em>FECRU_FILES</em> - List of files associated with the revision. Separated by line breaks.</li>
+									<li><em>FECRU_AUTHOR</em> - Author of the revision</li>
+									<li><em>FECRU_PROJECTS</em> - Space separated list of any projects associated with the repository.</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			#end
+			
+			<p>
+				<input type="submit" value="save" />
+			</p>
+		</form>
+	</body>
+</html>
