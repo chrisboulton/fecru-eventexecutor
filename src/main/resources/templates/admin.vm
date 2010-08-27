@@ -12,7 +12,7 @@
 						<td>
 							<p>This plugin allows system executables/callbacks to be supplied for various events raised from within FishEye and Crucible.</p>
 							<p>For each event you wish to listen for, fill in the command text box with the path to the executable. The plugin will then call the executable with environment variables containing information about the raised event.</p>
-							
+
 							<p>Because this plugin needs system wide access to projects, it needs to run as an elevated user. Enter the username of a FishEye administrator below.</p>
 							<p>
 								FishEye Administrator:
@@ -22,7 +22,7 @@
 					</tr>
 				</tbody>
 			</table>
-			
+
 			#if ($username)
 				<table class="adminTable">
 					<thead>
@@ -55,7 +55,7 @@
 					</tbody>
 				</table>
 			#end
-			
+
 			<p>
 				<input type="submit" value="save" />
 			</p>

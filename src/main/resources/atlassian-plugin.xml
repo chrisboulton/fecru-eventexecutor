@@ -6,7 +6,7 @@
 	</plugin-info>
 
 	<listener key="commit-listener" class="com.bigcommerce.fecru.plugins.eventexecutor.CommitListener" />
-	
+
 	<component-import key="pluginSettingsFactory"
 					  interface="com.atlassian.sal.api.pluginsettings.PluginSettingsFactory" />
 
